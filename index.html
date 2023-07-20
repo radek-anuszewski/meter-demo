@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meter demo</title>
+	<script type="module">
+		const slider = document.querySelector("#slider");
+    const meter = document.querySelector("#meter");
+    const valueEl = document.querySelector("#value");
+    slider.addEventListener("change", e => {
+      const value = e.target.value;
+      valueEl.innerText = value;
+      meter.setAttribute("value", value);
+		})
+	</script>
+</head>
+<body style="padding: 32px">
+<main>
+  <h1>Meter demo</h1>
+  <article>
+		Move the slider to change the meter value.
+		<br>
+		<br>
+		<strong>Click on slider and then use keyboards left and right arrow to see more often updates</strong>
+		<br>
+		<br>
+		<label for="slider">Value</label>
+		<br>
+		<input id="slider" type="range" min="10" max="100" value="15" step="5">
+		<br>
+		<meter id="meter" min="10" max="100" low="30" optimum="50" high="70" value="15"></meter>
+		<br>
+		<br>
+		<br>
+		<br>
+		Value: <span id="value">15</span>. Low: 30, optimum: 50, high: 70.
+		<br>
+		Meter should change color at least in two cases:
+		<ol>
+			<li>Outside low and high range - could be yellow</li>
+			<li>Inside low and high range - could be green</li>
+		</ol>
+		It may differ between browsers
+  </article>
+</main>
+</body>
+</html>
